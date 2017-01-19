@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{parskip} %skip the indent of a new paragraph.
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{listings}
+\lstset{language=Matlab, frame=single, breaklines=true,numbers=left, keywordstyle=\color{blue},rulecolor=\color{black},commentstyle=\color{gray}}
+
+\usepackage{cleveref}
+\usepackage{todonotes}
+
+\title{Linear Systems TTK4115 - Latex lab template}
+\author{Ola Student -- 789456 \\ Kari Studine -- 789457}
+\date{August 2016}
+
+\begin{document}
+
+\begin{titlepage}
+    \maketitle
+    \rule{\linewidth}{0.5mm}
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/logontnu_eng}
+    \end{figure}
+    \thispagestyle{empty}
+\end{titlepage}
+
+%\section*{Table of contents} 
+\tableofcontents
+\thispagestyle{empty} %Avoid page numbering on the table of contents
+\newpage    
+
+\setcounter{page}{1}
+\input{part1}
+\input{part2}
+\input{part3}
+\input{summary}
+
+\newpage
+\input{reference}
+
+\end{document}
