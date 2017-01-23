@@ -4,25 +4,25 @@
 This section will list some packages that are essential for lab reports. %First a short description of some of the common ones, the
 
 \begin{description}
-	\item[amsmath] provides some useful mathematical definitions (like \texttt{\textbackslash sin} for e.g. $\sin(\omega t)$ and \texttt{\textbackslash lim} for e.g. $\lim_{t\to\infty}$. Also some definitions to make it more convenient to write the math.
-	\item[amssymb] provides an extended symbol collection.
-	\item[hyperref] makes it possible to create ``clickable'' links, like \url{itk.ntnu.no/fag/TTK4115}, but also \cref{tab:extab}, \cref{eq:mmot} and \cref{eq:mmot2}.
-	\item[graphicx] provides some useful definitions for dealing with graphics, like \textbackslash textwidth: \textbackslash includegraphics[width=\textbackslash textwidth]\{picture\} will have the same width as the text column.
-	\item[float] makes it easier to place figures, tables, listings etc.
+  \item[amsmath] provides some useful mathematical definitions (like \texttt{\textbackslash{sin}} for e.g. $\sin(\omega t)$ and \texttt{\textbackslash{lim}} for e.g. $\lim_{t\to\infty}$. Also some definitions to make it more convenient to write the math.
+  \item[amssymb] provides an extended symbol collection.
+  \item[hyperref] makes it possible to create ``clickable'' links, like \url{itk.ntnu.no/fag/TTK4115}, but also \cref{tab:extab}, \cref{eq:mmot} and \cref{eq:mmot2}.
+  \item[graphicx] provides some useful definitions for dealing with graphics, like \textbackslash{textwidth}: \textbackslash{includegraphics}[width=\textbackslash{textwidth}]\{picture\} will have the same width as the text column.
+  \item[float] makes it easier to place figures, tables, listings etc.
 \end{description}
 \begin{table}
-	\caption{Boring table}
-	\centering
-	\begin{tabular}{ll}
-		\hline
-		\textbf{X} & \textbf{Y}\\
-		\hline
-		5 & 8\\
-		6 & 9\\
-		7& :( \\
-	\hline
-	\end{tabular}
-	\label{tab:extab}
+  \caption{Example table}
+  \centering
+  \begin{tabular}{ll}
+    \hline
+    \textbf{X} & \textbf{Y}\\
+    \hline
+    5 & 8\\
+    6 & 9\\
+    7 & 10 \\
+    \hline
+  \end{tabular}
+  \label{tab:extab}
 \end{table}
 
 \begin{subequations}
@@ -40,13 +40,13 @@ More information on these packages can be found in the documentation for each pa
 The \texttt{listings} package makes it easy to include code in the report. For example \cref{lst:label} includes code that is written in the tex file. However \cref{lst:listing2} simply takes the code directly from the source file. You can also specify what the code listings should look like: color, line numbers, frames\ldots
 
 \begin{lstlisting}[caption={Some Matlab code, with the source in the tex file},label={lst:label},language=Matlab, float]
-degree = 6;
-out = ones(size(X1(:,1)));
-for i = 1:degree
-    for j = 0:i
-        out(:, end+1) = (X1.^(i-j)).*(X2.^j);
-    end
-end
+  degree = 6;
+  out = ones(size(X1(:,1)));
+  for i = 1:degree
+  for j = 0:i
+  out(:, end+1) = (X1.^(i-j)).*(X2.^j);
+  end
+  end
 \end{lstlisting}
 \lstinputlisting[language=Matlab, firstline=4, lastline=10, caption={Another piece of code, directly from the source file}, label={lst:listing2},float]{some_function.m}
 This is great! However, try to keep the amount of code in the report to a reasonable level, and remember; code in itself is not an explanation.
@@ -54,26 +54,25 @@ This is great! However, try to keep the amount of code in the report to a reason
 See \url{http://ctan.mirrors.hoobly.com/macros/latex/contrib/listings/listings.pdf} for more information.
 
 \subsection{todonotes}
-The \texttt{todonotes} package is great for work in progress. Few things are more embarrassing than forgetting to remove ``LALALALAL FIXME!!!!!!'' from the middle of your report. Instead, use \texttt{\textbackslash todo\{LALALA FIXME!!!\}} \todo{LALALA FIXME!!!}. This will show up like a red box in the margin. Some prefer \texttt{\textbackslash todo{[inline]}\{FIXME2!!!\}} which produces \todo[inline]{FIXME2!!!} To avoid typing [inline] all the time, you can define
+The \texttt{todonotes} package is great for work in progress. Few things are more embarrassing than forgetting to remove ``LALALALAL FIXME!!!!!!'' from the middle of your report. Instead, use \texttt{\textbackslash{todo}\{LALALA FIXME!!!\}} \todo{LALALA FIXME!!!}. This will show up like a red box in the margin. Some prefer \texttt{\textbackslash{todo}{[inline]}\{FIXME2!!!\}} which produces \todo[inline]{FIXME2!!!} To avoid typing [inline] all the time, you can define
 \begin{lstlisting}[language=TeX, numbers=none]
-\newcommand{\TODO}[1]{\todo[inline]{#1}}
+  \newcommand{\TODO}[1]{\todo[inline]{#1}}
 \end{lstlisting}
+in the preamble of the document, and then use \textbackslash{TODO}.
 
-in the preamble of the document, and use \textbackslash TODO.
+And the best part: When you are finished with your report (or have run out of time) you can simply change \textbackslash{usepackage}\{todonotes\} to \textbackslash{usepackage}[disable]\{todonotes\} and they will all magically disappear!
 
-And the best part: When you are finished with your report (or have run out of time) you can simply change \textbackslash usepackage\{todonotes\} to \textbackslash usepackage[disable]\{todonotes\} and they will all magically disappear!
-
-You can also use \textbackslash listoftodos to get a list of all the todos in your document, and \textbackslash missingfigure will create a dummy figure, like \cref{fig:my_awesome_fig}, that you can replace once you have made a proper figure. This way you can start referencing figures/plots before you make them, and still be reminded that you need to make them.
+You can also use \textbackslash{listoftodos} to get a list of all the todos in your document, and \textbackslash{missingfigure} will create a dummy figure, like \cref{fig:my_awesome_fig}, that you can replace once you have made a proper figure. This way you can start referencing figures/plots before you make them, and still be reminded that you need to make them.
 
 See \url{http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/todonotes/todonotes.pdf} for more information.
 \begin{figure}[h]
-    \centering
-    \missingfigure{Drawing of such and such}
-    \caption{Sweet figure, bro!}
-    \label{fig:my_awesome_fig}
+  \centering
+  \missingfigure{Drawing of such and such}
+  \caption{Sweet figure, bro!}
+  \label{fig:my_awesome_fig}
 \end{figure}
 
 \subsection{cleveref}
-Speaking of referencing: The observant reader might have noticed the use of \texttt{\textbackslash cref} in referencing tables, figures etc. This is a bit more clever than the normal \texttt{\textbackslash ref} because it detects what you are referencing based on the prefix of the label. Then it prints the appropriate ``prefix''. So \texttt{\textbackslash cref\{fig:my\_awesome\_fig\}} will produce \cref{fig:my_awesome_fig}, whereas \texttt{\textbackslash cref\{tab:extab\}} will produce \cref{tab:extab}. Notice how the labels of the table and the figureare prefixed with \texttt{tab:} and \texttt{fig:} respectively. If you want it to say e.g. ``figure'' instead of ``fig.'', this is completely customizable. There is also \texttt{\textbackslash Cref} for a capitalized version.
+Speaking of referencing: The observant reader might have noticed the use of \texttt{\textbackslash{cref}} in referencing tables, figures etc. This is a bit more clever than the normal \texttt{\textbackslash{ref}} because it detects what you are referencing based on the prefix of the label. Then it prints the appropriate ``prefix''. So \texttt{\textbackslash{cref}\{fig:my\_awesome\_fig\}} will produce \cref{fig:my_awesome_fig}, whereas \texttt{\textbackslash{cref}\{tab:extab\}} will produce \cref{tab:extab}. Notice how the labels of the table and the figureare prefixed with \texttt{tab:} and \texttt{fig:} respectively. If you want it to say e.g. ``figure'' instead of ``fig.'', this is completely customizable. There is also \texttt{\textbackslash{Cref}} for a capitalized version.
 
 See \url{http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/cleveref/cleveref.pdf} for more information.
