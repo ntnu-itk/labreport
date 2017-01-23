@@ -1,6 +1,7 @@
+% vim: ft=tex
 \section{Useful hints}
 \subsection{The \texttt{\textbackslash input\{\}} command}
-By using \texttt{\textbackslash input\{whatever\}} in your main tex file (\texttt{main.tex} in this case), the content of \texttt{whatever.tex} will be included in your pdf. This way you can split the contents into different files, e.g. one for each problem of the assignment. This makes it easier to restructure the document, and arguably improves the readability of the tex files. For instance; maybe you want each problem to start on a new page? Simply add \textbackslash newpage before each \texttt{\textbackslash input} command.
+By using \texttt{\textbackslash input\{whatever\}} in your main tex file (\texttt{main.tex} in this case), the content of \texttt{whatever.tex} will be included in your pdf. This way you can split the contents into different files, e.g.~one for each problem of the assignment. This makes it easier to restructure the document, and arguably improves the readability of the tex files. For instance; maybe you want each problem to start on a new page? Simply add \textbackslash newpage before each \texttt{\textbackslash input} command.
 
 \subsection{Citations}
 In academic writing, it is important to credit your sources. In \LaTeX this is done by the \texttt{\textbackslash cite} command. For instance \texttt{\textbackslash cite\{chen2014linear\}} will produce \cite{chen2014linear}, and make the full details of that source available in the references. This requires that you make a bibliography file (\texttt{ref.bib} in this case), containing something like
