@@ -1,16 +1,15 @@
 % vim: ft=tex
-\section{Essential packages}
-
-This section will list some packages that are essential for lab reports. %First a short description of some of the common ones, the
+\section{Useful packages}
+This section lists some packages that are useful for reports. See also the comments in the preamble of this document.
 
 \begin{description}
   \item[amsmath] provides some useful mathematical definitions (like \texttt{\textbackslash{sin}} for e.g. $\sin(\omega t)$ and \texttt{\textbackslash{lim}} for e.g. $\lim_{t\to\infty}$. Also some definitions to make it more convenient to write the math.
   \item[amssymb] provides an extended symbol collection.
   \item[hyperref] makes it possible to create ``clickable'' links, like \url{itk.ntnu.no/fag/TTK4115}, but also \cref{tab:extab}, \cref{eq:mmot} and \cref{eq:mmot2}.
   \item[graphicx] provides some useful definitions for dealing with graphics, like \textbackslash{textwidth}: \textbackslash{includegraphics}[width=\textbackslash{textwidth}]\{picture\} will have the same width as the text column.
-  \item[float] makes it easier to place figures, tables, listings etc.
+  \item[float] lets you force placement of floats with the [H] option. You should normally not need this.
 \end{description}
-\begin{table}
+\begin{table}[H]
   \caption{Example table}
   \centering
   \begin{tabular}{ll}

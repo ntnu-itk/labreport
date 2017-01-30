@@ -1,0 +1,48 @@
+% vim: ft=tex
+\documentclass[11pt, a4paper, USenglish]{article} % change ``USenglish'' to ``norsk'' if applicable.
+
+% Search http://ctan.org or type texdoc <package name> in a terminal to access LaTeX package documentation.
+\usepackage[T1]{fontenc} % See http://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
+\usepackage[utf8]{inputenc} % See http://tex.stackexchange.com/questions/44694/fontenc-vs-inputenc
+\usepackage{amsmath} % See: http://tex.stackexchange.com/questions/32100/what-does-each-ams-package-do
+\usepackage{amssymb} % See above.
+\usepackage{parskip} % Skip the indent of a new paragraph.
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{cleveref}
+\usepackage{todonotes}
+
+\usepackage{hyperref} % Provides clickable links. Always load last.
+
+% ``listings'' package settings
+\lstset{language=Matlab, frame=single, breaklines=true,numbers=left, keywordstyle=\color{blue},rulecolor=\color{black},commentstyle=\color{gray}}
+
+\title{LaTeX ITK Lab Report}
+\author{Group XX\\789456 (Ola Student) \\789457 (Kari Studine)}
+\date{January 1, 1970}
+
+\begin{document}
+
+\begin{titlepage}
+    \maketitle
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/logontnu_eng}
+    \end{figure}
+    \thispagestyle{empty}
+\end{titlepage}
+
+\tableofcontents
+\thispagestyle{empty} % Avoid page numbering on the table of contents.
+\newpage    
+
+\setcounter{page}{1}
+\input{part1}
+\input{part2}
+\input{part3}
+\input{summary}
+
+\newpage
+\input{reference}
+
+\end{document}
