@@ -2,23 +2,32 @@
 \documentclass[11pt, a4paper, USenglish]{article} % change ``USenglish'' to ``norsk'' if applicable.
 
 % Search http://ctan.org or type texdoc <package name> in a terminal to access LaTeX package documentation.
+\usepackage{babel} % babel and csquotes are packages for multilingual (e.g. Norwegian) support.
 \usepackage[T1]{fontenc} % See http://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc
 \usepackage[utf8]{inputenc} % See http://tex.stackexchange.com/questions/44694/fontenc-vs-inputenc
+\usepackage{csquotes} % Needs to be loaded after inputenc.
 \usepackage{amsmath} % See: http://tex.stackexchange.com/questions/32100/what-does-each-ams-package-do
 \usepackage{amssymb} % See above.
-\usepackage{parskip} % Skip the indent of a new paragraph.
 \usepackage{graphicx} % Provides the \includegraphics command.
 \usepackage{listings} % Provides source code listings.
-\usepackage{cleveref} % Provides the \Cref command, for general cross-referencing of equations, sections, figures and tables.
+\usepackage{cleveref} % Provides the \Cref command, for cross-referencing of equations, sections, figures and tables.
 \usepackage{todonotes} % Provides several handy TODO commands.
-
+\usepackage[backend=biber, style=numeric]{biblatex} % http://tex.stackexchange.com/questions/25701/bibtex-vs-biber-and-biblatex-vs-natbib
 \usepackage{hyperref} % Provides clickable links. Always load last.
 
-% ``listings'' package settings
-\lstset{language=Matlab, frame=single, breaklines=true,numbers=left, keywordstyle=\color{blue},rulecolor=\color{black},commentstyle=\color{gray}}
+\addbibresource{bibliography.bib} % Makes the bibliography available to biblatex.
 
-\title{LaTeX ITK Lab Report}
-\author{Group XX\\789456 (Ola Student) \\789457 (Kari Studine)}
+% ``listings'' package settings
+\lstset{language=Matlab, 
+    frame=single,
+    breaklines=true,
+    numbers=left,
+    keywordstyle=\color{blue},
+    rulecolor=\color{black},
+    commentstyle=\color{gray}}
+
+\title{ITK LaTeX Lab Report Template}
+\author{Group XX\\789456 \\789457 }
 \date{January 1, 1970}
 
 \begin{document}
@@ -27,22 +36,38 @@
     \maketitle
     \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{images/logontnu_eng}
+    \includegraphics[width=0.5\textwidth]{figures/logontnu_eng}
     \end{figure}
     \thispagestyle{empty}
 \end{titlepage}
 
+\begin{abstract} 
+%\addcontentsline{toc}{section}{Abstract} % add this if you want the abstract in the table of contents.
+This document outlines a few important aspects of the lab report. It contains some advice on both content and layout. The \LaTeX{} source for this document is also published, and you can use it as a template of sorts for your own report.
+
+When you write your own report, this section (the abstract) should contain a \emph{very} short summary of what the lab is about and what you have done.
+\end{abstract}
+\thispagestyle{empty} % Avoid page numbering on the abstract page.
+\newpage
+
 \tableofcontents
 \thispagestyle{empty} % Avoid page numbering on the table of contents.
-\newpage    
+\newpage
 
 \setcounter{page}{1}
-\input{part1}
-\input{part2}
+\input{intro}
+%\input{part1} % \input vs. \include http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
+\input{part2} % The short story is that \include forces page breaks while \input simply inserts the contents of the file.
 \input{part3}
 \input{summary}
 
+\addcontentsline{toc}{section}{Appendix} % comment out this if you don't want the appendix included in the table of contents.
+\appendix
+\input{matlab}
+\input{simulink}
+
 \newpage
-\input{reference}
+\addcontentsline{toc}{section}{References} % comment out this if you don't want the references included in the table of contents.
+\printbibliography
 
 \end{document}
