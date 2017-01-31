@@ -15,59 +15,40 @@
 \usepackage[backend=biber, style=numeric]{biblatex} % http://tex.stackexchange.com/questions/25701/bibtex-vs-biber-and-biblatex-vs-natbib
 \usepackage{hyperref} % Provides clickable links. Always load last.
 
-\addbibresource{bibliography.bib} % Makes the bibliography available to biblatex.
+\addbibresource{bibliography.bib} % Makes the bibliography file available to biblatex.
 
-% ``listings'' package settings
-\lstset{language=Matlab, 
-    frame=single,
-    breaklines=true,
-    numbers=left,
-    keywordstyle=\color{blue},
-    rulecolor=\color{black},
-    commentstyle=\color{gray}}
+\input{listings_settings}
 
 \title{ITK LaTeX Lab Report Template}
 \author{Group XX\\789456 \\789457 }
 \date{January 1, 1970}
 
 \begin{document}
+\input{titlepage} % \input vs. \include http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
 
-\begin{titlepage}
-    \maketitle
-    \begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/logontnu_eng}
-    \end{figure}
-    \thispagestyle{empty}
-\end{titlepage}
-
-\begin{abstract} 
-%\addcontentsline{toc}{section}{Abstract} % add this if you want the abstract in the table of contents.
-This document outlines a few important aspects of the lab report. It contains some advice on both content and layout. The \LaTeX{} source for this document is also published, and you can use it as a template of sorts for your own report.
-
-When you write your own report, this section (the abstract) should contain a \emph{very} short summary of what the lab is about and what you have done.
-\end{abstract}
-\thispagestyle{empty} % Avoid page numbering on the abstract page.
 \newpage
+\input{abstract}
+\thispagestyle{empty} % Avoid page numbering on the abstract page.
 
+\newpage
 \tableofcontents
 \thispagestyle{empty} % Avoid page numbering on the table of contents.
-\newpage
 
+\newpage
 \setcounter{page}{1}
 \input{intro}
-%\input{part1} % \input vs. \include http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
 \input{part2} % The short story is that \include forces page breaks while \input simply inserts the contents of the file.
 \input{part3}
 \input{summary}
 
+\newpage
 \addcontentsline{toc}{section}{Appendix} % comment out this if you don't want the appendix included in the table of contents.
 \appendix
 \input{matlab}
 \input{simulink}
 
 \newpage
-\addcontentsline{toc}{section}{References} % comment out this if you don't want the references included in the table of contents.
+\addcontentsline{toc}{section}{References}
 \printbibliography
 
 \end{document}
