@@ -24,7 +24,9 @@
 \date{January 1, 1970}
 
 \begin{document}
-\input{titlepage} % \input vs. \include http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
+\input{titlepage} 
+% \input vs. \include http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
+% The short story is that \include forces page breaks while \input simply inserts the contents of the file.
 
 \newpage
 \input{abstract}
@@ -37,7 +39,7 @@
 \newpage
 \setcounter{page}{1}
 \input{intro}
-\input{part2} % The short story is that \include forces page breaks while \input simply inserts the contents of the file.
+\input{part2}
 \input{part3}
 \input{summary}
 
