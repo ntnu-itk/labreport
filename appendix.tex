@@ -1,4 +1,18 @@
 \addcontentsline{toc}{section}{Appendix} % Remove this if you don't want the appendix included in the table of contents.
 \appendix
-\input{matlab}
-\input{simulink}
+
+\section{MATLAB Code}\label{sec:matlab}
+This section should contain your MATLAB code. DO NOT attach files posted online (that you didn't write). Note that the method used to input code below does not look as pretty when the lines are too long.
+
+\subsection{plot\_constraint.m}\label{sec:plot_constraint_m}
+\lstinputlisting{code/plot_constraint.m}\section{Simulink Diagrams}\label{sec:simulink}
+This section should contain your Simulink diagrams. Just like the plots, these should be in vector format, like in Figure~\ref{fig:simulink}. Make them tidy enough to understand.
+
+\subsection{A Simulink Diagram}
+Figure~\ref{fig:simulink} shows a Simulink diagram.
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width = \textwidth]{figures/simulink.pdf}
+	\caption{A Simulink diagram.}
+\label{fig:simulink}
+\end{figure}

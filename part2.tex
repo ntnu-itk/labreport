@@ -3,17 +3,17 @@
 \subsection{Matrix Equations}
 Here is a matrix equation you can use as a template:
 \begin{equation}
-\begin{bmatrix}
- 1 &  0 &  0 & 0 & -b &  0 &  0 &  0 \\
--a &  1 &  0 & 0 &  0 & -b &  0 &  0 \\
- 0 & -a &  1 & 0 &  0 &  0 & -b &  0 \\
- 0 &  0 & -a & 1 &  0 &  0 &  0 & -b                                
-\end{bmatrix}
-\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ u_0 \\ u_1 \\ u_2 \\ u_3 \end{bmatrix}
-=
-\begin{bmatrix}
-ax_0 \\ 0 \\ 0 \\ 0      
-\end{bmatrix}
+	\begin{bmatrix}
+		1 &  0 &  0 & 0 & -b &  0 &  0 &  0 \\
+		-a &  1 &  0 & 0 &  0 & -b &  0 &  0 \\
+		0 & -a &  1 & 0 &  0 &  0 & -b &  0 \\
+		0 &  0 & -a & 1 &  0 &  0 &  0 & -b                                
+	\end{bmatrix}
+	\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ u_0 \\ u_1 \\ u_2 \\ u_3 \end{bmatrix}
+	=
+	\begin{bmatrix}
+		ax_0 \\ 0 \\ 0 \\ 0      
+	\end{bmatrix}
 \end{equation}
 
 \subsection{Tables}
@@ -25,27 +25,27 @@ Variables and symbols are always in italics, while units are not.
 	\centering
 	\caption{Parameters and values.}
 	\begin{tabular}{llll}
-		\hline
+		\toprule
 		Symbol & Parameter & Value & Unit \\
-		\hline
-		$l_a$ & Distance from elevation axis to helicopter body & $0.63$ & \meter \\
-		$l_h$ & Distance from pitch axis to motor & $0.18$ & \meter \\
-		$K_f$ & Force constant motor & $0.25$ & \newton\per\volt \\
-		$J_e$ & Moment of inertia for elevation & $0.83$ & \kilogram\usk\meter\squared \\
-		$J_t$ & Moment of inertia for travel & $0.83$ & \kilogram\usk\meter\squared \\
-		$J_p$ & Moment of inertia for pitch & $0.034$ & \kilogram\usk\meter\squared \\
-		$m_h$ & Mass of helicopter & $1.05$ & \kilogram \\
-		$m_w$ & Balance weight & $1.87$ & \kilogram \\
-		$m_g$ & Effective mass of the helicopter & $0.05$ & \kilogram \\
-		$K_p$ & Force to lift the helicopter from the ground & $0.49$ & \newton \\
-		\hline
+		\midrule
+		$l_a$ & Distance from elevation axis to helicopter body & $0.63$ & \meter\\
+		$l_h$ & Distance from pitch axis to motor & $0.18$ & \meter\\
+		$K_f$ & Force constant motor & $0.25$ & \newton\per\volt\\
+		$J_e$ & Moment of inertia for elevation & $0.83$ & \kilogram\usk\meter\squared\\
+		$J_t$ & Moment of inertia for travel & $0.83$ & \kilogram\usk\meter\squared\\
+		$J_p$ & Moment of inertia for pitch & $0.034$ & \kilogram\usk\meter\squared\\
+		$m_h$ & Mass of helicopter & $1.05$ & \kilogram\\
+		$m_w$ & Balance weight & $1.87$ & \kilogram\\
+		$m_g$ & Effective mass of the helicopter & $0.05$ & \kilogram\\
+		$K_p$ & Force to lift the helicopter from the ground & $0.49$ & \newton\\
+		\bottomrule
 	\end{tabular}
-	\label{tab:parameters}
+\label{tab:parameters}
 \end{table}
 
 
 \subsection{The \texttt{\textbackslash{input}\{\}} command}
-By using \texttt{\textbackslash{input}\{whatever\}} in your main tex file (\texttt{main.tex} in this case), the content of \texttt{whatever.tex} will be included in your pdf. This way you can split the contents into different files, e.g.~one for each problem of the assignment. This makes it easier to restructure the document, and arguably improves the readability of the tex files. For instance; maybe you want each problem to start on a new page? Simply add \textbackslash{newpage} before each \texttt{\textbackslash{input}} command.
+By using \texttt{\textbackslash{input}\{whatever\}} in your main tex file (\texttt{labreport.tex} in this case), the content of \texttt{whatever.tex} will be included in your pdf. This way you can split the contents into different files, e.g.~one for each problem of the assignment. This makes it easier to restructure the document, and arguably improves the readability of the tex files. For instance; maybe you want each problem to start on a new page? Simply add \textbackslash{newpage} before each \texttt{\textbackslash{input}} command.
 
 \subsection{Citations}
 In academic writing, it is important to credit your sources. In \LaTeX{} this is done by the \texttt{\textbackslash{cite}} command. For instance \texttt{\textbackslash{cite}\{Chen2014\}} will produce~\cite{Chen2014}, and make the full details of that source available in the references. This requires that you make a bibliography file (\texttt{bibliography.bib} in this case), containing something like
