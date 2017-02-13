@@ -1,6 +1,9 @@
 \input{preamble} % The preamble specifies all included packages and related parameters.
+% \input simply inserts the contents of the file, while \include forces a \newpage.
+% See \input vs. \include: http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
 
 \begin{document}
+
 % Titlepage
 \title{LaTeX Lab Report Template}
 \author{Group 00\\Student 70000\\Student 70001\\Student 70002}
@@ -16,8 +19,6 @@
 \end{titlepage}
 
 % Abstract
-% \input simply inserts the contents of the file, while \include forces a \newpage.
-% See \input vs. \include: http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
 \newpage
 \input{abstract}
 \thispagestyle{empty} % Avoid page numbering on the abstract page.

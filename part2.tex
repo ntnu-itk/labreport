@@ -1,4 +1,6 @@
+\newcommand{\texMacro}[2]{\texttt{\textbackslash{#1}\{#2\}}}
 \section{General LaTeX tips}\label{sec:latex_tips}
+Some tips were given in \Cref{sec:intro}, and this section will elaborate with some more concrete examples.
 
 \subsection{Matrix Equations}
 Here is a matrix equation you can use as a template:
@@ -43,13 +45,14 @@ Variables and symbols are always in italics, while units are not.
 \label{tab:parameters}
 \end{table}
 
+\subsection{The \texMacro{input}{} command}
+By using \texMacro{input}{whatever} in your main tex file (\texttt{labreport.tex} in this case), the content of \texttt{whatever.tex} will be included in your pdf. This way you can split the contents into different files, e.g.~one for each problem of the assignment. This makes it easier to restructure the document, and arguably improves the readability of the tex files. For instance; maybe you want each problem to start on a new page? Simply add \textbackslash{newpage} before each \texMacro{input}{} command. Alternatively, you can use the \texMacro{input}{} command to achieve more or less the same effect. See~\cite{InputVsInclude} for more information.
 
-\subsection{The \texttt{\textbackslash{input}\{\}} command}
-By using \texttt{\textbackslash{input}\{whatever\}} in your main tex file (\texttt{labreport.tex} in this case), the content of \texttt{whatever.tex} will be included in your pdf. This way you can split the contents into different files, e.g.~one for each problem of the assignment. This makes it easier to restructure the document, and arguably improves the readability of the tex files. For instance; maybe you want each problem to start on a new page? Simply add \textbackslash{newpage} before each \texttt{\textbackslash{input}} command.
-
-\subsection{Citations}
-In academic writing, it is important to credit your sources. In \LaTeX{} this is done by the \texttt{\textbackslash{cite}} command. For instance \texttt{\textbackslash{cite}\{Chen2014\}} will produce~\cite{Chen2014}, and make the full details of that source available in the references. This requires that you make a bibliography file (\texttt{bibliography.bib} in this case), containing something like
+\subsection{Citations and Reference Management}
+In academic writing, it is very important to cite your sources. In Latex this is done by defining an an entry in a \emph{BibTeX} bibliography file like this (from \texttt{bibliography.bib}):
 \lstinputlisting[language=Tex, firstline=1, lastline=7]{bibliography.bib}
+and then using the \texttt{\textbackslash{cite}} command in your Latex document. For instance \texttt{\textbackslash{cite}\{Chen2014\}} will produce~\cite{Chen2014}.
 
-There are many different citation styles, and a lot of customization that is possible, so please check out e.g.~\cite{WikibookLatex}\footnote{Even though this cites a web page, scientific writing tries to keep the citation of web pages to a minimum.}.
+There are many different citation styles, and a lot of customization that is possible, so please check out e.g.~\cite{BiberBibtexEtc,WikibookLatex}\footnote{Keep citation of web pages to a minimum, and consider using \url{http://web.archive.org} if you are worried that the reference may change or be removed in the future.}.
 
+There is also a lot of useful software to manage your references. Some popular examples include JabRef (\url{http://www.jabref.org/}), Mendeley (\url{https://www.mendeley.com/}) and EndNote. JabRef is perhaps the simplest of these three, and stores all information in a \texttt{.bib} file that you can directly use in your Latex document. Both Mendeley and EndNote can export references as BibTeX.
