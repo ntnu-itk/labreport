@@ -1,18 +1,16 @@
 \section{Problem Description}\label{sec:prob_descr}
 You should have a section that describes the lab setup, including a model of the helicopter. If you want, you can copy the source code for the model equations:
 \begin{gather}
-	\ddot{e} + K_{3} K_{ed} \dot{e} + K_{3} K_{ep} e = K_{3} K_{ep} e_{c} \label{eq:model_elev} \\
-	\ddot{p} + K_{1} K_{pd} \dot{p} + K_{1} K_{pp} p = K_{1} K_{pp} p_{c} \label{eq:model_pitch} \\
-	\dot{\lambda} = r \label{eq:model_lambda} \\
-	\dot{r} = -K_{2} p \label{eq:model_r} 
+		J_p\ddot{p} = L_{1}V_{d} \label{eq:model_pitch}\\
+		J_e\ddot{e} = L_{2} \cos(e) + L_3 V_s \cos(p) \label{eq:model_elev}\\
+		J_\lambda \ddot{\lambda} = L_4 V_s \cos(e) \sin(p) \label{eq:model_lambda}
 \end{gather}
 Since these equations belong together, it's a good idea to number them like this:
 \begin{subequations}\label{eq:model}
 	\begin{gather}
-		\ddot{e} + K_{3} K_{ed} \dot{e} + K_{3} K_{ep} e = K_{3} K_{ep} e_{c} \label{eq:model_se_elev} \\
-		\ddot{p} + K_{1} K_{pd} \dot{p} + K_{1} K_{pp} p = K_{1} K_{pp} p_{c} \label{eq:model_se_pitch} \\
-		\dot{\lambda} = r \label{eq:model_se_lambda} \\
-		\dot{r} = -K_{2} p \label{eq:model_se_r} 
+		J_p\ddot{p} = L_{1}V_{d} \label{eq:model_se_pitch}\\
+		J_e\ddot{e} = L_{2} \cos(e) + L_3 V_s \cos(p) \label{eq:model_se_elev}\\
+		J_\lambda \ddot{\lambda} = L_4 V_s \cos(e) \sin(p) \label{eq:model_se_lambda}
 	\end{gather}
 \end{subequations}
 You can then both reference individual equations (``the elevation equation \Cref{eq:model_se_elev}'') or reference the entire model (``the linear model~\Cref{eq:model}''). Regardless of your choice of software, never hard-code a reference, always use dynamic references. 
@@ -20,10 +18,9 @@ You can then both reference individual equations (``the elevation equation \Cref
 You could also align the equations like this:
 \begin{subequations}\label{eq:model_al}
 	\begin{align}
-		\ddot{e} + K_{3} K_{ed} \dot{e} + K_{3} K_{ep} e &= K_{3} K_{ep} e_{c} \label{eq:model_se_al_elev} \\
-		\ddot{p} + K_{1} K_{pd} \dot{p} + K_{1} K_{pp} p &= K_{1} K_{pp} p_{c} \label{eq:model_se_al_pitch} \\
-		\dot{\lambda} &= r \label{eq:model_se_al_lambda} \\
-		\dot{r} &= -K_{2} p \label{eq:model_se_al_r} 
+		J_p\ddot{p} &= L_{1}V_{d} \label{eq:model_se_al_pitch}\\
+		J_e\ddot{e} &= L_{2} \cos(e) + L_3 V_s \cos(p) \label{eq:model_se_al_elev}\\
+		J_\lambda \ddot{\lambda} &= L_4 V_s \cos(e) \sin(p) \label{eq:model_se_al_lambda}
 	\end{align}
 \end{subequations}
 You can consult~\cite{Downes2002} for more about writing math.
