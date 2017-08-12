@@ -1,6 +1,6 @@
 \newcommand{\texMacro}[2]{\texttt{\textbackslash{#1}\{#2\}}}
 \section{General LaTeX tips}\label{sec:latex_tips}
-Some tips were given in \Cref{sec:intro}, and this section will elaborate with some more concrete examples.
+Some tips were given in \Cref{sec:intro}, and this section will elaborate with some more concrete examples. Also check out the source files for some additional useful packages.
 
 \subsection{Matrix Equations}
 Here is a matrix equation you can use as a template:
@@ -56,3 +56,42 @@ and then using the \texttt{\textbackslash{cite}} command in your Latex document.
 There are many different citation styles, and a lot of customization that is possible, so please check out e.g.~\cite{BiberBibtexEtc,WikibookLatex}\footnote{Keep citation of web pages to a minimum, and consider using \url{http://web.archive.org} if you are worried that the reference may change or be removed in the future.}.
 
 There is also a lot of useful software to manage your references. Some popular examples include JabRef (\url{http://www.jabref.org/}), Mendeley (\url{https://www.mendeley.com/}) and EndNote. JabRef is perhaps the simplest of these three, and stores all information in a \texttt{.bib} file that you can directly use in your Latex document. Both Mendeley and EndNote can export references as BibTeX.
+
+\subsection{listings}
+ The \texttt{listings} package makes it easy to include code in the report. For example \cref{lst:label} includes code that is written in the tex file. You can also specify what the code listings should look like: color, line numbers, frames\ldots
+ 
+ \begin{lstlisting}[caption={Some Matlab code, with the source in the tex file},label={lst:label},language=Matlab, float]
+   degree = 6;
+   out = ones(size(X1(:,1)));
+   for i = 1:degree
+      for j = 0:i
+	 out(:, end+1) = (X1.^(i-j)).*(X2.^j);
+      end
+   end
+ \end{lstlisting}
+% Uncomment the following line to take the code directly from the source file 'some_function.m'
+ %\lstinputlisting[language=Matlab, firstline=4, lastline=10, caption={Another piece of code, directly from the source file}, label={lst:listing2},float]{some_function.m}
+ This is great! However, try to keep the amount of code in the report to a reasonable level, and remember; code in itself is not an explanation.
+ 
+ %See \url{http://ctan.mirrors.hoobly.com/macros/latex/contrib/listings/listings.pdf} for more information.
+ 
+ \subsection{todonotes}
+ The \texttt{todonotes} package is great for work in progress. Few things are more embarrassing than forgetting to remove ``Remember to fix this before delivery!!!!!!'' from the middle of your report. Instead, use \texttt{\textbackslash{todo}\{Remember to fix this before delivery!!!!!!\}} \todo{Remember to fix this before delivery!!!!!!}. This will show up like a red box in the margin. Some prefer \texttt{\textbackslash{todo}{[inline]}\{FIXME2!!!\}} which produces \todo[inline]{FIXME2!!!} %since the todos in the margin tend to cause 'Overfull \hbox' warnings.
+
+ %To avoid typing [inline] all the time, you can define  
+ %\newcommand{\TODO}[1]{\todo[inline]{#1}}
+ %in the preamble of the document, and then use \TODO
+You can also use \textbackslash{listoftodos} to get a list of all the todos in your document, and \textbackslash{missingfigure} will create a dummy figure, like \cref{fig:my_awesome_fig}, that you can replace once you have made a proper figure. This way you can start referencing figures/plots before you make them, and still be reminded that you need to make them.
+
+ \begin{figure}[h]
+   \centering
+   \missingfigure{Plot of pitch and desired pitch from problem 1.2.3}
+   \caption{Pitch and desired pitch}
+   \label{fig:my_awesome_fig}
+\end{figure}
+ 
+When you are finished with your report (or have run out of time) you can simply change \textbackslash{usepackage}\{todonotes\} to \textbackslash{usepackage}[disable]\{todonotes\} and they will all magically disappear!
+%See \url{http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/todonotes/todonotes.pdf} for more information. 
+
+\subsection{cleveref}
+The observant reader might have noticed the use of \texttt{\textbackslash{cref}} in referencing tables, figures etc. This is a bit more clever than the normal \texttt{\textbackslash{ref}} because it detects what you are referencing based on the prefix of the label. Then it prints the appropriate ``prefix''. So \texttt{\textbackslash{cref}\{fig:my\_awesome\_fig\}} will produce \cref{fig:my_awesome_fig}, whereas \texttt{\textbackslash{cref}\{tab:parameters\}} will produce \cref{tab:parameters}. Notice how the labels of the table and the figureare prefixed with \texttt{tab:} and \texttt{fig:} respectively. If you want it to say e.g. ``figure'' instead of ``fig.'', this is completely customizable. There is also \texttt{\textbackslash{Cref}} for a capitalized version.
